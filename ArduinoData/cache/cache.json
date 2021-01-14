@@ -1,0 +1,55 @@
+{
+  "files" : [ {
+    "remoteURL" : "https://downloads.arduino.cc/libraries/library_index.json.gz",
+    "localPath" : "C:\\Users\\wilan\\Documents\\ArduinoData\\cache\\downloads.arduino.cc\\libraries\\library_index.json.gz",
+    "eTag" : "ffd53624a05dd93762e034d63cea193f",
+    "md5" : "MD5:ffd53624a05dd93762e034d63cea193f",
+    "createdAt" : "2020-12-19T09:38:43.202",
+    "cacheControl" : {
+      "maxAge" : 14400,
+      "mustRevalidate" : false,
+      "noCache" : false,
+      "noStore" : false
+    },
+    "expires" : "2020-12-19T13:38:43.202"
+  }, {
+    "remoteURL" : "https://downloads.arduino.cc/packages/package_index.json.sig",
+    "localPath" : "C:\\Users\\wilan\\Documents\\ArduinoData\\cache\\downloads.arduino.cc\\packages\\package_index.json.sig",
+    "eTag" : "e3e12acc36578668df25f3d9b2a7e1ca",
+    "md5" : "MD5:e3e12acc36578668df25f3d9b2a7e1ca",
+    "createdAt" : "2020-12-19T09:38:42.003",
+    "cacheControl" : {
+      "maxAge" : 3600,
+      "mustRevalidate" : false,
+      "noCache" : false,
+      "noStore" : false
+    },
+    "expires" : "2020-12-19T10:38:42.003"
+  }, {
+    "remoteURL" : "https://downloads.arduino.cc/libraries/library_index.json.sig",
+    "localPath" : "C:\\Users\\wilan\\Documents\\ArduinoData\\cache\\downloads.arduino.cc\\libraries\\library_index.json.sig",
+    "eTag" : "9eb34eacf95a4632a9916d91a045ebd1",
+    "md5" : "MD5:9eb34eacf95a4632a9916d91a045ebd1",
+    "createdAt" : "2020-12-19T09:38:44.533",
+    "cacheControl" : {
+      "maxAge" : 14400,
+      "mustRevalidate" : false,
+      "noCache" : false,
+      "noStore" : false
+    },
+    "expires" : "2020-12-19T13:38:44.533"
+  }, {
+    "remoteURL" : "https://downloads.arduino.cc/packages/package_index.json",
+    "localPath" : "C:\\Users\\wilan\\Documents\\ArduinoData\\cache\\downloads.arduino.cc\\packages\\package_index.json",
+    "eTag" : "6b6201a081b7e22eb2edd8de7432c00e",
+    "md5" : "MD5:6b6201a081b7e22eb2edd8de7432c00e",
+    "createdAt" : "2020-12-19T09:38:41.033",
+    "cacheControl" : {
+      "maxAge" : 3600,
+      "mustRevalidate" : false,
+      "noCache" : false,
+      "noStore" : false
+    },
+    "expires" : "2020-12-19T10:38:41.033"
+  } ]
+}
