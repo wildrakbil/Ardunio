@@ -1,6 +1,3 @@
-
-const int SERIAL_PORT = 115200;
-
 void board_config() {
   Serial.begin(SERIAL_PORT);
   WiFi.mode(WIFI_STA);

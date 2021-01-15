@@ -1,5 +1,4 @@
 void GET_request(EthernetClient client, String path , String sensor) {
-
   // Send HTTP request
   client.print(F("GET "));
   //client.print("/home/sensor/" + idSensor);
@@ -11,27 +10,33 @@ void GET_request(EthernetClient client, String path , String sensor) {
   client.println(TEST_HOST);
   client.println(F("Cache-Control: no-cache"));
 
+
   if (client.println() == 0) {
     Serial.println(F("Failed to send request"));
     return;
   }
 
+  delay(1000);
+
   client.readBytesUntil('\r', http_status, sizeof(http_status));
+  Serial.print("http_status :: ");
+  Serial.println(http_status);
+
 
   char c = ' ';
   // limpia el header del response
-  while (client.available() && client.peek() != '{')
-  {
+  while (client.available() && client.peek() != '{') {
     client.readBytes(&c, 1);
   }
 
   // While the client is still availble read each
   // byte and print to the serial monitor
-  while (client.available() && client.peek() != ']') {
+  payload = "";
+  while (client.available()) {
     client.readBytes(&c, 1);
     payload += c;
+    //payload = client.readStringUntil('\n');
   }
-
 }
 
 

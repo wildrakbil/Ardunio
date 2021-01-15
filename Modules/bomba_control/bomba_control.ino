@@ -5,8 +5,10 @@
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-#define TEST_HOST "192.168.0.40" //localhost
+#define TEST_HOST "192.168.0.26" //localhost
 #define TEST_PORT 8080 //PORT
+const int SERIAL_PORT = 9600;
+byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };// MAC Modulo Ethernet
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 EthernetClient client;
@@ -32,10 +34,11 @@ String sensorId = "1";
 String HCSR04_value;
 
 void setup() {
+  board_config();
+  Serial.println("Setup System complete");
   pinMode(LED, OUTPUT);
   pinMode(LCD_VCC, OUTPUT);
   digitalWrite(LCD_VCC, HIGH);
-  board_config();
   pinMode(bomba_manual, OUTPUT);
   pinMode(bomba_auto, OUTPUT);
   digitalWrite(bomba_manual, HIGH);
@@ -43,23 +46,26 @@ void setup() {
 
 void loop() {
   delay(2000);
-   // logica consultar valor de HCSR04
+  // logica consultar valor de HCSR04
   if (client.connect(TEST_HOST, TEST_PORT)) {
     GET_request(client, "/sensor/", sensorId);
+    Serial.print("payload :: ");
     Serial.println(payload);
     StaticJsonDocument<300> doc;
+    Serial.println(payload);
     deserializeJson(doc, payload);
     String value = doc["data"]["value"];
     HCSR04_value = value;
     printLCD("HCSR04_value : ", value);
-    delay(2000);
-    payload = "";
+    Serial.println("HCSR04_value : " + value);
+    client.stop();
   } else {
     Serial.println("Connection failed...");
     printLCD("Connection: ", "failed...");
   }
   // logica de la bomba
-  if (HCSR04_value == "0") {
+  float value = HCSR04_value.toFloat();
+  if (value < 4) {
     digitalWrite(bomba_auto, LOW);
     printLCD("Bomba: ", "LOW");
   }

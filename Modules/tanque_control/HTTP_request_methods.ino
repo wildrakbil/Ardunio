@@ -1,7 +1,7 @@
 
-const String URL_GET_ALL = "http://192.168.0.40:8080/home/sensors";
-const String URL_GET_BY_ID = "http://192.168.0.40:8080/home/sensor/";
-const String URL_PUT = "http://192.168.0.40:8080/home/sensor/";
+const String URL_GET_ALL = "http://192.168.0.26:8080/home/sensors";
+const String URL_GET_BY_ID = "http://192.168.0.26:8080/home/sensor/";
+const String URL_PUT = "http://192.168.0.26:8080/home/sensor/";
 
 String GET_request(String sensorID) {
   String payload = "";

@@ -8,6 +8,8 @@
 #define STAPSK  "Mario1072639375"
 #endif
 
+const int SERIAL_PORT = 115200;
+
 const char* ssid     = STASSID;
 const char* password = STAPSK;
 
@@ -45,8 +47,17 @@ void loop() {
 
   if (WiFi.status() == WL_CONNECTED) { //Check WiFi connection status
     String sensorID = "1";
-    String body = "{\"value\":" +  String(dist) +  "}";
+    String body = "{\"value\":" +  String(dist, 2) +  "}";
+    Serial.print("Body: ");
+    Serial.println(body);
     PUT_request(sensorID, body);
+
+    String data = GET_request(sensorID);
+    StaticJsonDocument<300> doc;
+    deserializeJson(doc, data);
+    String value = doc["data"]["value"];
+    Serial.printf("Sensor value ::  %s\n", value.c_str());
+
   } else {
     Serial.println("Error in WiFi connection");
   }
